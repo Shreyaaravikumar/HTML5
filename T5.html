@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        meter{
+            width: 400px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Default meter tag</h1>
+    <meter></meter>
+
+    <h1>Static meter tag</h1>
+    <meter value="50" min="0" max="100"></meter> <br>
+    <meter value="40" min="0" max="100"></meter> <br>
+    <meter value="30" min="0" max="100"></meter> <br>
+    <meter value="20" min="0" max="100"></meter> <br>
+    <meter value="10" min="0" max="100"></meter> <br>
+
+    <h1>Low and High attributes</h1>
+    <meter value="50" max="100" min="0" low="20" high="80"></meter>
+
+    <h1>Dynamic meter tag</h1>
+    <meter value="0" max="100" min="0" low="30" high="70" id="m1"></meter>
+    <small id="result"></small>
+
+    <script>
+        let meterTag = document.getElementById('m1');
+        let result = document.getElementById('result');
+
+        function driveStorage(){
+            meterTag.value++
+        }
+
+        //driveStorage()
+        //driveStorage()
+        //driveStorage()
+        //driveStorage()
+
+        //to call any code or function every second we can use setInterval(functionName, time(in milliseconds)) method
+        setInterval('driveStorage()',100)
+    </script>
+    
+</body>
+</html>

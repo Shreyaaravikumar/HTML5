@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .main {
+            min-height: 100vh;
+            background-color: rgb(5, 12, 9);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #d8d8d802;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        header nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #ebebeb;
+            font-weight: 600;
+        }
+
+        header nav ul .active a {
+            color: #3ec47a;
+        }
+
+        .main-btn {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 100px;
+            color: #fff;
+            background-color: #007233;
+        }
+
+        .blur1 {
+            width: 300px;
+            height: 100%;
+            background-color: #7afcb536;
+            position: absolute;
+            filter: blur(200px);
+            left: 0px;
+            top: 0;
+            z-index: -1;
+        }
+
+        .blur2 {
+            width: 300px;
+            height: 100%;
+            background-color: #88f7ba36;
+            position: absolute;
+            filter: blur(200px);
+            right: 0px;
+            top: 0;
+        }
+
+        .blur3 {
+            width: 200px;
+            height: 200px;
+            background-color: #39ff9294;
+            position: absolute;
+            filter: blur(90px);
+            left: 0px;
+            top: 0;
+        }
+
+        .blur4 {
+            width: 200px;
+            height: 200px;
+            background-color: #39ff9294;
+            position: absolute;
+            filter: blur(90px);
+            right: 300px;
+            top: 300px;
+        }
+
+        .heading {
+            color: #fff;
+            font-size: 4rem;
+        }
+
+        .hero {
+            z-index: 10;
+            display: flex;
+        }
+
+        .hero-left {
+            padding: 5%;
+            flex: 1;
+        }
+
+        .hero-right {
+            position: relative;
+            flex: 1;
+            z-index: 10;
+        }
+
+        .card {
+            margin-top: 70px;
+            transform: translateY(50px);
+        }
+
+        .finger {
+            position: absolute;
+            top: 350px;
+            right: 310px;
+        }
+
+        .hand {
+            z-index: -1;
+            transform: translateX(50px);
+            position: absolute;
+            right: 51px;
+            bottom: -95px;
+        }
+
+        .circle {
+            position: absolute;
+            right: 350px;
+            bottom: 0px;
+            animation: rotate-anim 5s linear infinite;
+        }
+
+        .arrow {
+            position: absolute;
+            right: 396px;
+            bottom: 40px;
+            animation: moving-anim 1.5s linear infinite alternate;
+        }
+
+        @keyframes rotate-anim {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes moving-anim {
+            0% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(10px);
+            }
+        }
+
+        .text-green {
+            color: #3ec47a;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: gray;
+            font-weight: 600;
+        }
+
+        .profiles {
+            padding: 10px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .images {
+            display: flex;
+            gap: 5px;
+        }
+
+        .images img {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #fff;
+            border-radius: 100px;
+        }
+
+        .images img:nth-child(2) {
+            transform: translateX(-25px);
+        }
+
+        .images img:nth-child(3) {
+            transform: translateX(-50px);
+        }
+
+        .heading2 {
+            color: lightgray;
+            font-size: 2rem;
+        }
+
+        .rating {
+            padding: 10px 15px;
+            border: 1px solid #3ec47a52;
+            min-width: 240px;
+            border-radius: 10px;
+        }
+
+        .icons {
+            display: flex;
+            margin-top: 10px;
+            gap: 5px;
+        }
+
+        .icons .subtitle {
+            margin-left: 20px;
+        }
+
+        .heading1 {
+            color: #fff;
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 70px;  
+                   
+        }
+        .button1{
+            display: flex;
+        }
+        .subtitle1 {
+            font-size: 1.2rem;
+            color:#fff;
+            font-weight: 600;
+        }
+
+
+      
+        .view{
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap:30px;
+            padding: 50px;
+            position: relative;
+            font-weight: 10%;
+            /* margin-left: 30px;
+            margin-right: 30px; */
+        }
+        .first{
+        
+            background:linear-gradient(#222, #007233); 
+            width: 250px;
+            height: 190px;
+            padding-top: 40px;
+            border-radius: 15px;
+            margin: 0;
+            gap: 50px;
+            margin-top: 20px;
+            color: #fff;
+           
+        }
+        .main1{
+            display: flex;
+            padding: 50px;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            gap: 150px;
+
+        }
+        .image img{
+            flex: 1;
+            border-radius: 20px;
+        
+           transform: translateY(40px);
+           margin-left: 30px;
+
+        }
+        .imageright{
+           flex: 1;
+           
+        }
+        .unorder{
+            font-size: 1.2rem;
+            color: gray;
+            font-weight: 600;
+            transform: translateX(20px);
+            line-height: 35px;   
+        }
+        .first1{
+            
+            background:linear-gradient(#222, #007233); 
+            width: 390px;
+            height: 270px;
+            padding-top: 40px;
+            border-radius: 15px;
+            margin: 0;
+            gap: 50px;
+            margin-top: 20px;
+            color: #fff;
+            cursor: pointer;
+           
+        }
+        .first1:hover{
+            transform: translateY(-20px);
+        }
+
+        
+        .tax{
+            border-radius: 8px;
+            border:2px solid #3ec47a;
+            background-color: #000;
+            padding: 8px;
+            height: 25%;
+            width: 15%;
+            transform: translateX(170px);
+
+        }
+        .subtitle2{
+            font-size: 1rem;
+            color:#fff;
+            font-weight: 400;
+        }
+        .scroll{
+            gap: 10%;
+          
+        }
+        .first2{
+            background:linear-gradient(#222, #007233); 
+            width: 390px;
+            height: 270px;
+            padding-top: 40px;
+            border-radius: 15px;
+            margin: 0;
+            gap: 50px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .first2:hover{
+            transform: translateY(-20px);
+        }
+        .first2 img{
+            width: 390px;
+            height: 250px;
+        }
+        .view1{
+          
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap:30px;
+            padding: 50px 50px 50px 50px;
+            
+          
+        }
+        marquee img{
+            padding:13px;
+        } 
+
+        .section6{
+            width: 100%;
+            min-height: 90vh;
+            background-color: rgb(5, 12, 9);
+            color: white;
+            padding: 30px;
+
+        }
+        .hero6{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            gap: 40px;
+        }
+        .rotate img{
+            width: 400px;
+            height: 250px;
+            border-radius: 20px;
+        }
+        .rotate:hover{
+            transform:translateY(30px);
+            transition: 1s;
+            color: #3ec47a;
+            cursor: pointer;
+            
+        }
+        
+       
+       
+    </style>
+
+    <!-- link for aos animation  -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- link for fonts or icons  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <section class="main">
+        <div class="blur1"></div>
+        <div class="blur2"></div>
+        <div class="blur3"></div>
+        <div class="blur4"></div>
+        <header>
+            <img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66c99d2874d2aa7563e97ed6_Nav%20Logo.svg"
+                alt="loading">
+
+            <nav>
+                <ul>
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Price</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </nav>
+
+            <button class="main-btn">Contact Us</button>
+        </header>
+
+        <div class="hero">
+            <div class="hero-left">
+                <h1 class="heading">
+                    Transform your <br><span class="text-green">finances</span> with <br>trusted <br>accountants.
+                </h1>
+                <p class="subtitle">Rorem ipsum dolor sit amet consectetur. Blandit varius tellus sed <br>maecenas
+                    tortor
+                    ut.</p>
+                <button class="main-btn">Contact Us</button>
+                <div class="profiles">
+                    <div class="images">
+                        <img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66c99d29bea7984c4ada2d89_Reviwe%20Image%203.png"
+                            alt="profiles">
+                        <img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66c99d299ec3635f82eca371_Reviwe%20Image%202.png"
+                            alt="profiles">
+                        <img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66ce9c56c5ddf62e1ec8162e_ratting%20img.svg"
+                            alt="profiles">
+                    </div>
+                    <div>
+                        <h1 class="heading2">245K</h1>
+                        <p class="subtitle">Our Client</p>
+                    </div>
+
+                    <div class="rating">
+                        <img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66c99d2874d2aa7563e97ed6_Nav%20Logo.svg"
+                            alt="loading...">
+                        <div class="icons">
+                            <img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66c99d2aef411ecb7d3242cb_Ster%20Icon%201.svg"
+                                alt="loading"><img
+                                src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66c99d2aef411ecb7d3242cb_Ster%20Icon%201.svg"
+                                alt="loading"><img
+                                src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66c99d2aef411ecb7d3242cb_Ster%20Icon%201.svg"
+                                alt="loading"><img
+                                src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66c99d2aef411ecb7d3242cb_Ster%20Icon%201.svg"
+                                alt="loading"><img
+                                src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66c99d2a06b0d169d1a0117d_Ster%20Icon%202.svg"
+                                alt="loading">
+                            <p class="subtitle">5.0/4.50</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="hero-right">
+                <img class="card"
+                    src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66e1229e10bf16edba66dfd9_card.svg"
+                    alt="">
+
+                <img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66ce9f60349b0256f938d50f_Hand.svg"
+                    alt="" class="hand">
+
+                <img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66ce9f60c77b20539a8a0da3_Finger.svg"
+                    alt="" class="finger">
+
+                <img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66c99d2734818b4d505af5ae_Hero%20Icon.svg"
+                    alt="" class="circle">
+
+                <img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66c99d251c4d550202c87a36_Dowon%20%20Icon.svg"
+                    alt="" class="arrow">
+            </div>
+
+        </div>
+
+        <div>
+           <center> <h2 class="heading1"> Important metrics <span class="text-green">    reflecting</span> <br> our expertis. </h2></center>
+        </div>
+
+       
+            <div class="view">
+                <div class="first">
+                    <h1>15K</h1>
+                    <p class="subtitle1">Happy clients</p>
+                </div>
+                <div class="first">
+                   <h1>10K</h1>
+                   <p class="subtitle1">Team members</p>
+                </div>
+                <div class="first">
+                    <h1>100%</h1>
+                    <p class="subtitle1">Customer satisfaction</p>
+                </div>
+            <div class="first">
+                <h2>20 year</h2>
+                <p class="subtitle1">Years in Business</p>
+            </div>
+            </div>
+
+            <div class="main1">
+                <div class="image">
+                    <img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66c99d27674488656088fc87_Home%20About%20Image-p-800.jpg" alt="loading" width="600px" height="450px">
+                </div>
+                <div class="imageright">
+                    
+                    <h2 class="heading1">Experience professional <br> <span class="text-green">  accounting </span>with personal <br> touch.<h2> <br>
+                        <p class="subtitle">Gorem ipsum dolor sit amet consectetur. Sed nec eu ullamcorper</p> <br> 
+                        <ul class="unorder">
+                            <li>Egestas non morbi blandit convallis.</li>
+                              <li>Ornare aliquet enim in semper consequat nibh.</li>  
+                              <li>Euismod molestie augue sed sem nibh erat.</li>
+                        </ul> <br>
+
+                        <button class="main-btn">More about Us</button>
+
+                </div>
+               </div>
+
+               <div>
+               <center> <h2 class="heading1">Efficient accounting services <br>for <span class="text-green">business growth.</span></h2></center> <br>
+               <center> <p class="subtitle1">Leo tincidunt viverra id tincidunt nam. Leo cursus mattis nisi accumsan faucibus <br>mauris ut fames.</p></center>
+               </div>
+               
+
+               <div class="view">
+                <div class="first1">
+                    <div class="tax"><img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd3835/66c9ac27a43762e556ae10e5_Service%20Icon%206.svg"></div> <br>
+                    <h1>Tax Planning</h1> <br>
+                    <p class="subtitle1">The Alico-Insurance Agency WordPress <br>Theme is a WordPress theme designed <br>for</p>
+                 </div>
+                 <div class="first1">
+                    <div class="tax"><img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd3835/66c9ac1aa43762e556ae05f0_Service%20Icon%205.svg"></div> <br>
+                    <h1>Payroll Management</h1> <br>
+                    <p class="subtitle1">The Alico-Insurance Agency WordPress <br>Theme is a WordPress theme designed <br>for</p>
+                 </div>
+                
+                 <div class="first1">
+                    <div class="tax"><img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd3835/66c9ac0b5b2b208a64f87b2b_Service%20Icon%204.svg"></div> <br>
+                    <h1>BookKeeping Services</h1>  <br>
+                    <p class="subtitle1">The Alico-Insurance Agency WordPress <br>Theme is a WordPress theme designed <br>for</p>
+                 </div>
+               </div> <br> <br> 
+
+               <center><h2 style="color: rgba(186, 186, 186, 0.778); font-weight: 600; font-size: 2rem;">Trusted by leading brands in <br> accounting excellence</h2></center>
+               <br> <br>
+               
+               <marquee class="scroll" behavior="scroll" scrollamount="10" >
+                <img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66c99d250eb4645715d8b2c1_Brand%20Logo%204.svg" alt="no image found" width="200">
+                <img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66c99d2474d2aa7563e97c44_Brand%20Logo%201.svg" alt="no image found" width="200">
+                <img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66c99d250eb4645715d8b2c1_Brand%20Logo%204.svg" alt="no image found" width="200">
+                <img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66c99d2474d2aa7563e97c44_Brand%20Logo%201.svg" alt="no image found" width="200">
+                <img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66c99d250eb4645715d8b2c1_Brand%20Logo%204.svg" alt="no image found" width="200">
+                <img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd381d/66c99d2474d2aa7563e97c44_Brand%20Logo%201.svg" alt="no image found" width="200">
+            </marquee>  <br>
+
+            
+              <div> <center><h2 class="heading1">Successful <span class="text-green">financial projects</span> <br>driving business growth.</center></h2> <br>
+                <center> <p class="subtitle">Thsum dolor sit amet consectetur. Egestas vel euismod bibendum elementum.<br> Dolor tortor etiam diam nulla massa.</p></center>
+            </div>
+
+            <section class="section6">
+                <div class="hero6">
+                 <div class="rotate">
+                     <img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd3835/66c9ad693a7f2530ac545d0b_Project%20Image%206-p-500.jpg" alt="">
+                     <h1 style="padding: 10px;">Portfolio Diverfication <br> Strategies</h1>
+                 </div>
+                 <div class="rotate">
+                     <img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd3835/66c9ad70387b861aa81172c1_Project%20Image%205-p-500.jpg" alt="">
+                     <h1 style="padding: 10px;">Long-term Budget <br>Developement</h1>
+                 </div>
+                 <div class="rotate">
+                     <img src="https://cdn.prod.website-files.com/66c98887ce290badf1dd3835/66c9ad5bbea7984c4ae82da7_Project%20Image%204-p-500.jpg" alt="">
+                     <h1 style="padding: 10px;">Faurd Detection System</h1>
+                 </div>
+                </div>
+                <center>  <h2 class="heading1">Success stories from <br>our <span class="text-green">happy clients.</span></h2></center>
+             </section>
+
+            
+
+
+
+
+           </div> 
+    </section>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

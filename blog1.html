@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog1</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            
+        }
+        body{
+            width: 70%;
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        .text-main{
+            color: #1E2A5E;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 2rem;
+        }
+        .text{
+            color: #606676;
+            font-size: 1.8rem;
+            margin-top: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.2;
+        }
+        ul{
+            list-style-position: inside;
+            line-height: 1.2;
+             text-decoration:none ;
+             margin-top: 20px;
+        }
+        a:link {
+      text-decoration: none;
+        }
+        figure{
+            width: 70%;
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            background-color: #45474B;
+            margin-top: 20px;
+            color: white;
+        }
+        figcaption{
+            color: #606676;
+            font-size: 1.8rem;
+            margin-top: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.2;
+
+        }
+        .text1{
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1rem;
+            background-color: #45474B;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+       
+        </style>
+</head>
+<body>
+    <h1 class="text-main">Java Program to Print an Integer  <br> (Entered by the User)</h1>
+    <p class="text">To understand this example, you should have the knowledge of the following <a href="#" target="_blank">Java programming</a> topics:</p>
+    <div class="text">
+        <ul>
+            <li><a href="#" target="_blank">Java Hello World Program</a></li> <br>
+
+            <li><a href="#" target="_blank">Java Basic Input and Output</a></li>
+        </ul>
+    </div>
+
+    <br>
+    <h2 class="text-main">Example: How to Print an Integer entered by an user</h2>
+    <figure >
+        <code>
+            <pre>
+                import java.util.Scanner;
+
+public class HelloWorld {
+
+    public static void main(String[] args) {
+
+        // Creates a reader instance which takes
+        // input from standard input - keyboard
+        Scanner reader = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+
+        // nextInt() reads the next integer from the keyboard
+        int number = reader.nextInt();
+
+        // println() prints the following line to the output screen
+        System.out.println("You entered: " + number);
+    }
+}
+            </pre>
+        </code>
+    </figure> <br>
+    <h2 class="text-main">Output</h2>
+    <p class="text1"> Enter a number: 10 <br>
+        You entered: 10
+        </p>
+        <br>
+       <figcaption>
+        <ul>
+           <li>In this program, an object of Scanner class, reader is created to take inputs from standard input, which is keyboard.</li> <br>
+
+        <li>Then, Enter a number prompt is printed to give the user a visual cue as to what they should do next.</li> <br>
+
+        <li >reader.nextInt() then reads all entered integers from the keyboard unless it encounters a new line character \n (Enter). The entered integers are then saved to the integer variable number.</li> <br>
+
+        <li>If you enter any character which is not an integer, the compiler will throw an InputMismatchException.  </li> <br>
+
+        <li>Finally, number is printed onto the standard output (System.out) - computer screen using the function println().</li>
+        </ul>
+       </figcaption>
+    
+</body>
+</html>
