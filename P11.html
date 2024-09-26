@@ -2,23 +2,49 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        svg {
-            width: 500px;
-            height: 500px;
-            border: 3px solid #0c0c0c;
-            
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circular Progress Bar | HTML | CSS | SVG | JS</title>
 </head>
+<style>
+
+    .track {
+        stroke-width: 1;
+        stroke: lightgrey;
+        fill: none;
+    }
+    
+    .progress {
+        stroke-width: 10;
+        stroke: rgb(59, 56, 56);
+        stroke-linecap: round;
+        fill: none;
+        transform: rotate(270deg);
+        transform-origin: center;
+    }
+</style>
 
 <body>
-    <svg>
-        <path d="M30 300 L100 300 M100 300 L150 220 M150 220 L190 300 M190 300 L250 300 M250 300 L210 340 M210 340 L240 390 M240 390 L180 380 M180 380 L " stroke="#000" fill="none"/>
-       
-        
+    <svg width="250" height="250">
+      <circle r="100" cx="125" cy="125" class="track"></circle>
+      <circle r="100" cx="125" cy="125" class="progress"></circle>
     </svg>
-    </body>
+
+</body>
+
+<script>
+    let progressCircle = document.querySelector(".progress");
+    let radius = progressCircle.r.baseVal.value;
+    //circumference of a circle = 2πr;
+    let circumference = radius * 2 * Math.PI;
+    progressCircle.style.strokeDasharray = circumference;
+
+    //0 to 100
+    setProgress(60);
+
+    function setProgress(percent) {
+        progressCircle.style.strokeDashoffset = circumference - (percent / 100) * circumference;
+    }
+</script>
+
+</html>
